@@ -10,9 +10,6 @@ use Unitable\GrahamStripe\Engines\Stripe\StripeEngine;
  */
 class StripeCardMethod extends Method {
 
-    /**
-     * @var array
-     */
     protected $guarded = [];
 
     /**
