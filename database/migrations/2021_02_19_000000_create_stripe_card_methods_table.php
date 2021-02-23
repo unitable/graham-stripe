@@ -14,8 +14,9 @@ class CreateStripeCardMethodsTable extends Migration {
     public function up() {
         Schema::create('stripe_card_methods', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('owner_id');
-            $table->string('stripe_card_id');
+            $table->unsignedBigInteger('user_id');
+            $table->string('stripe_setup_intent_id');
+            $table->string('stripe_payment_method_id');
             $table->timestamps();
         });
     }
