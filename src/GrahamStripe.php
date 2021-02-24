@@ -2,4 +2,13 @@
 
 namespace Unitable\GrahamStripe;
 
-class GrahamStripe {}
+use Laravel\Cashier\Billable;
+use Laravel\Cashier\Subscription;
+
+class GrahamStripe {
+
+    public function test() {
+
+    }
+
+}
