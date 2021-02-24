@@ -1,6 +1,6 @@
 <?php
 
-namespace Cashier;
+namespace Unitable\GrahamStripe\Cashier;
 
 use Laravel\Cashier\Cashier;
 use Laravel\Cashier\CashierServiceProvider as ServiceProvider;
