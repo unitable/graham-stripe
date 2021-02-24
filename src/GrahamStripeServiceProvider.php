@@ -3,6 +3,8 @@
 namespace Unitable\GrahamStripe;
 
 use Illuminate\Support\ServiceProvider;
+use Unitable\GrahamStripe\Cashier\Observers\StripeSubscriptionObserver;
+use Unitable\GrahamStripe\Cashier\StripeSubscription;
 use Unitable\GrahamStripe\Engine\StripeEngine;
 
 class GrahamStripeServiceProvider extends ServiceProvider
@@ -57,6 +59,17 @@ class GrahamStripeServiceProvider extends ServiceProvider
             // Registering package commands.
             // $this->commands([]);
         }
+
+        $this->registerObservers();
+    }
+
+    /**
+     * Register any application observers.
+     *
+     * @return void
+     */
+    protected function registerObservers() {
+        StripeSubscription::observe(StripeSubscriptionObserver::class);
     }
 
 }
