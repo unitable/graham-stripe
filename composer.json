@@ -56,7 +56,8 @@
         "laravel": {
             "providers": [
                 "Unitable\\GrahamStripe\\GrahamStripeServiceProvider",
-                "Unitable\\GrahamStripe\\Cashier\\CashierServiceProvider"
+                "Unitable\\GrahamStripe\\Cashier\\CashierServiceProvider",
+                "Unitable\\GrahamStripe\\Engine\\StripeEngineServiceProvider"
             ],
             "dont-discover": [
                 "laravel/cashier"

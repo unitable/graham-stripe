@@ -3,12 +3,8 @@
 namespace Unitable\GrahamStripe;
 
 use Illuminate\Support\ServiceProvider;
-use Unitable\GrahamStripe\Cashier\Observers\StripeSubscriptionObserver;
-use Unitable\GrahamStripe\Cashier\StripeSubscription;
-use Unitable\GrahamStripe\Engine\StripeEngine;
 
-class GrahamStripeServiceProvider extends ServiceProvider
-{
+class GrahamStripeServiceProvider extends ServiceProvider {
 
     /**
      * Register the application services.
@@ -19,13 +15,10 @@ class GrahamStripeServiceProvider extends ServiceProvider
         $this->app->singleton('graham-stripe', function() {
             return new GrahamStripe;
         });
-        $this->app->singleton(StripeEngine::class, function() {
-            return new StripeEngine();
-        });
     }
 
     /**
-     * Bootstrap the application services.
+     * Bootstrap the package services.
      */
     public function boot() {
         /*
@@ -33,8 +26,8 @@ class GrahamStripeServiceProvider extends ServiceProvider
          */
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'graham-stripe');
         // $this->loadViewsFrom(__DIR__.'/../resources/views', 'graham-stripe');
-         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes/graham-stripe.php');
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadRoutesFrom(__DIR__ . '/../routes/graham-stripe.php');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
@@ -59,17 +52,6 @@ class GrahamStripeServiceProvider extends ServiceProvider
             // Registering package commands.
             // $this->commands([]);
         }
-
-        $this->registerObservers();
-    }
-
-    /**
-     * Register any application observers.
-     *
-     * @return void
-     */
-    protected function registerObservers() {
-        StripeSubscription::observe(StripeSubscriptionObserver::class);
     }
 
 }

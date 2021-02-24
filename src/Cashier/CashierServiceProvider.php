@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Config;
 use Laravel\Cashier\Cashier;
 use Laravel\Cashier\CashierServiceProvider as ServiceProvider;
 use Stripe\Stripe;
+use Unitable\GrahamStripe\Cashier\Observers\StripeSubscriptionObserver;
 use Unitable\GrahamStripe\GrahamStripe;
 
 class CashierServiceProvider extends ServiceProvider {
@@ -42,13 +43,24 @@ class CashierServiceProvider extends ServiceProvider {
     public function boot() {
         $this->registerLogger();
         $this->registerResources();
-        $this->overrideCashierConfig();
+        $this->registerObservers();
 
         Stripe::setAppInfo(
             'Graham Stripe',
             GrahamStripe::VERSION,
             'https://github.com/unitable/graham-stripe'
         );
+
+        $this->overrideCashierConfig();
+    }
+
+    /**
+     * Register any application observers.
+     *
+     * @return void
+     */
+    protected function registerObservers() {
+        StripeSubscription::observe(StripeSubscriptionObserver::class);
     }
 
     /**
