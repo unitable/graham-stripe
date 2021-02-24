@@ -55,7 +55,11 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Unitable\\GrahamStripe\\GrahamStripeServiceProvider"
+                "Unitable\\GrahamStripe\\GrahamStripeServiceProvider",
+                "Unitable\\GrahamStripe\\Cashier\\CashierServiceProvider"
+            ],
+            "dont-discover": [
+                "laravel/cashier"
             ],
             "aliases": {
                 "GrahamStripe": "Unitable\\GrahamStripe\\GrahamStripeFacade"

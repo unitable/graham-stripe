@@ -3,7 +3,7 @@
 namespace Unitable\GrahamStripe;
 
 use Illuminate\Support\ServiceProvider;
-use Unitable\GrahamStripe\Engines\Stripe\StripeEngine;
+use Unitable\GrahamStripe\Engine\StripeEngine;
 
 class GrahamStripeServiceProvider extends ServiceProvider
 {
@@ -11,16 +11,12 @@ class GrahamStripeServiceProvider extends ServiceProvider
     /**
      * Register the application services.
      */
-    public function register()
-    {
-        // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'graham-stripe');
+    public function register() {
+        $this->mergeConfigFrom(__DIR__ . '/../config/graham-stripe.php', 'graham-stripe');
 
-        // Register the main class to use with the facade
         $this->app->singleton('graham-stripe', function() {
             return new GrahamStripe;
         });
-
         $this->app->singleton(StripeEngine::class, function() {
             return new StripeEngine();
         });
@@ -29,35 +25,34 @@ class GrahamStripeServiceProvider extends ServiceProvider
     /**
      * Bootstrap the application services.
      */
-    public function boot()
-    {
+    public function boot() {
         /*
          * Optional methods to load your package assets
          */
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'graham-stripe');
         // $this->loadViewsFrom(__DIR__.'/../resources/views', 'graham-stripe');
          $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
+        // $this->loadRoutesFrom(__DIR__.'/routes/graham-stripe.php');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('graham-stripe.php'),
-            ], 'config');
+                __DIR__ . '/../config/graham-stripe.php' => config_path('graham-stripe.php'),
+            ], 'graham-config');
 
             // Publishing the views.
             /*$this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/graham-stripe'),
-            ], 'views');*/
+            ], 'graham-views');*/
 
             // Publishing assets.
             /*$this->publishes([
                 __DIR__.'/../resources/assets' => public_path('vendor/graham-stripe'),
-            ], 'assets');*/
+            ], graham-assets');*/
 
             // Publishing the translation files.
             /*$this->publishes([
                 __DIR__.'/../resources/lang' => resource_path('lang/vendor/graham-stripe'),
-            ], 'lang');*/
+            ], 'graham-lang');*/
 
             // Registering package commands.
             // $this->commands([]);
