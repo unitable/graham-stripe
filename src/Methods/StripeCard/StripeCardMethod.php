@@ -2,8 +2,8 @@
 
 namespace Unitable\GrahamStripe\Methods\StripeCard;
 
-use Unitable\Graham\Method\Method;
 use Unitable\GrahamStripe\Engine\StripeEngine;
+use Unitable\GrahamStripe\Method\StripeMethod;
 
 /**
  * @property int $user_id
@@ -11,7 +11,7 @@ use Unitable\GrahamStripe\Engine\StripeEngine;
  * @property string $stripe_payment_method_id
  * @property StripeEngine $engine
  */
-class StripeCardMethod extends Method {
+class StripeCardMethod extends StripeMethod {
 
     protected $guarded = [];
 

@@ -19,10 +19,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Cashier Path
+    | Graham Path
     |--------------------------------------------------------------------------
     |
-    | This is the base URI path where Cashier's views, such as the payment
+    | This is the base URI path where Graham's views, such as the payment
     | verification screen, will be available from. You're free to tweak
     | this path according to your preferences and application design.
     |
@@ -45,6 +45,14 @@ return [
         'secret' => env('STRIPE_WEBHOOK_SECRET'),
         'tolerance' => env('STRIPE_WEBHOOK_TOLERANCE', 300),
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | User Model
+    |--------------------------------------------------------------------------
+    */
+
+    'user' => env('STRIPE_USER_MODEL', \App\Models\User::class),
 
     /*
     |--------------------------------------------------------------------------
@@ -90,7 +98,7 @@ return [
     | Payment Confirmation Notification
     |--------------------------------------------------------------------------
     |
-    | If this setting is enabled, Cashier will automatically notify customers
+    | If this setting is enabled, Graham will automatically notify customers
     | whose payments require additional verification. You should listen to
     | Stripe's webhooks in order for this feature to function correctly.
     |
@@ -104,7 +112,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | This option is the default paper size for all invoices generated using
-    | Cashier. You are free to customize this settings based on the usual
+    | Graham. You are free to customize this settings based on the usual
     | paper size used by the customers using your Laravel applications.
     |
     | Supported sizes: 'letter', 'legal', 'A4'
