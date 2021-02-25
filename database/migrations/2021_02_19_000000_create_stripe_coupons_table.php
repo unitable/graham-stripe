@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePlanStripePricesTable extends Migration {
+class CreateStripeCouponsTable extends Migration {
 
     /**
      * Run the migrations.
@@ -12,9 +12,9 @@ class CreatePlanStripePricesTable extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('plan_stripe_prices', function (Blueprint $table) {
-            $table->unsignedBigInteger('plan_id')->unique();
-            $table->string('stripe_price_id');
+        Schema::create('stripe_coupons', function (Blueprint $table) {
+            $table->unsignedBigInteger('coupon_id')->unique();
+            $table->string('stripe_coupon_id');
         });
     }
 
@@ -24,7 +24,7 @@ class CreatePlanStripePricesTable extends Migration {
      * @return void
      */
     public function down() {
-        Schema::dropIfExists('plan_stripe_prices');
+        Schema::dropIfExists('stripe_coupons');
     }
 
 }

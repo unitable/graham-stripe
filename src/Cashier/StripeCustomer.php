@@ -21,7 +21,9 @@ class StripeCustomer extends Model {
      * @return static
      */
     public static function findByUserIdOrNew(int $user_id) {
-        return static::query()->findOrNew($user_id);
+        return static::query()->firstOrCreate([
+            'user_id' => $user_id
+        ]);
     }
 
     /**
@@ -30,7 +32,7 @@ class StripeCustomer extends Model {
      * @return HasMany
      */
     public function subscriptions() {
-        return $this->hasMany(StripeSubscription::class, $this->getForeignKey(), 'id')
+        return $this->hasMany(StripeSubscription::class, 'user_id', 'user_id')
             ->orderBy('created_at', 'desc');
     }
 
