@@ -36,6 +36,7 @@ class StripeEngineServiceProvider extends ServiceProvider {
      */
     public function registerEvents() {
         Event::listen(Events\StripeSubscriptionUpdated::class, Listeners\UpdateSubscription::class);
+        Event::listen(Events\StripeSubscriptionInvoiceUpdated::class, Listeners\UpdateSubscriptionInvoice::class);
     }
 
 }

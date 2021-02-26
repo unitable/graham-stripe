@@ -13,7 +13,9 @@ class CreateStripeSubscriptionInvoicesTable extends Migration {
      */
     public function up() {
         Schema::create('stripe_subscription_invoices', function (Blueprint $table) {
+            $table->unsignedBigInteger('stripe_subscription_id');
             $table->unsignedBigInteger('subscription_invoice_id')->unique();
+            $table->unsignedBigInteger('subscription_id');
             $table->string('status');
             $table->string('stripe_invoice_id');
             $table->string('currency_code');

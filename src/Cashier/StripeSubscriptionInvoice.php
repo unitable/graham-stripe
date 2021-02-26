@@ -22,6 +22,8 @@ class StripeSubscriptionInvoice extends Model {
 
     protected $guarded = [];
 
+    protected $primaryKey = 'subscription_invoice_id';
+
     /**
      * Translate Stripe status to Graham status.
      *
@@ -66,7 +68,7 @@ class StripeSubscriptionInvoice extends Model {
      * @param int $stripe_invoice_id
      * @return static|null
      */
-    public static function findByStripeInvoiceId(int $stripe_invoice_id) {
+    public static function findByStripeInvoiceId(string $stripe_invoice_id) {
         return static::query()->where('stripe_invoice_id', $stripe_invoice_id)->first();
     }
 
