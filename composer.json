@@ -1,6 +1,7 @@
 {
     "name": "unitable/graham-stripe",
     "description": "Stripe for Graham",
+    "version": "0.1.0",
     "keywords": [
         "unitable",
         "graham-stripe"

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Config;
 use Laravel\Cashier\Cashier;
 use Laravel\Cashier\CashierServiceProvider as ServiceProvider;
 use Stripe\Stripe;
+use Unitable\GrahamStripe\Cashier\Observers\StripeSubscriptionInvoiceObserver;
 use Unitable\GrahamStripe\Cashier\Observers\StripeSubscriptionObserver;
 use Unitable\GrahamStripe\GrahamStripe;
 
@@ -61,6 +62,7 @@ class CashierServiceProvider extends ServiceProvider {
      */
     protected function registerObservers() {
         StripeSubscription::observe(StripeSubscriptionObserver::class);
+        StripeSubscriptionInvoice::observe(StripeSubscriptionInvoiceObserver::class);
     }
 
     /**
