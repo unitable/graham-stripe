@@ -17,6 +17,7 @@ class CreateStripeSubscriptionInvoicesTable extends Migration {
             $table->string('status');
             $table->string('stripe_invoice_id');
             $table->string('currency_code');
+            $table->decimal('currency_rate', 12, 10);
             $table->decimal('total', 22, 2);
             $table->timestamps();
         });

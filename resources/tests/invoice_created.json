@@ -1,0 +1,201 @@
+{
+    "id": "in_1IP8MTHTjp366LnecBQNmxWZ",
+    "object": "invoice",
+    "account_country": "BR",
+    "account_name": "renato.digital",
+    "account_tax_ids": null,
+    "amount_due": 1260,
+    "amount_paid": 1260,
+    "amount_remaining": 0,
+    "application_fee_amount": null,
+    "attempt_count": 1,
+    "attempted": true,
+    "auto_advance": false,
+    "billing_reason": "subscription_update",
+    "charge": "ch_1IP8MUHTjp366LneJvvlYCry",
+    "collection_method": "charge_automatically",
+    "created": 1614353773,
+    "currency": "brl",
+    "custom_fields": null,
+    "customer": "cus_J0shbN64yL7kZF",
+    "customer_address": null,
+    "customer_email": "dev@renato.digital",
+    "customer_name": null,
+    "customer_phone": null,
+    "customer_shipping": null,
+    "customer_tax_exempt": "none",
+    "customer_tax_ids": [
+    ],
+    "default_payment_method": null,
+    "default_source": null,
+    "default_tax_rates": [
+    ],
+    "description": null,
+    "discount": {
+        "id": "di_1IOrTLHTjp366LnezUmDBm28",
+        "object": "discount",
+        "checkout_session": null,
+        "coupon": {
+            "id": "QrmOSAr3",
+            "object": "coupon",
+            "amount_off": null,
+            "created": 1612553242,
+            "currency": null,
+            "duration": "forever",
+            "duration_in_months": null,
+            "livemode": false,
+            "max_redemptions": null,
+            "metadata": {
+            },
+            "name": "Cachorro1337",
+            "percent_off": 10,
+            "redeem_by": null,
+            "times_redeemed": 64,
+            "valid": true
+        },
+        "customer": "cus_J0shbN64yL7kZF",
+        "end": null,
+        "invoice": null,
+        "invoice_item": null,
+        "promotion_code": null,
+        "start": 1614288851,
+        "subscription": "sub_J0tF3CjCOs031G"
+    },
+    "discounts": [
+        "di_1IOrTLHTjp366LnezUmDBm28"
+    ],
+    "due_date": null,
+    "ending_balance": 0,
+    "footer": null,
+    "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1H3CRcHTjp366Lne/invst_J1AhZ5BG6sBnPReqYHTjPqAqoNYisOh",
+    "invoice_pdf": "https://pay.stripe.com/invoice/acct_1H3CRcHTjp366Lne/invst_J1AhZ5BG6sBnPReqYHTjPqAqoNYisOh/pdf",
+    "last_finalization_error": null,
+    "lines": {
+        "object": "list",
+        "data": [
+            {
+                "id": "il_1IP8MTHTjp366LneuiDMkg17",
+                "object": "line_item",
+                "amount": 1400,
+                "currency": "brl",
+                "description": "1 × Store Foundation (at R$ 14.00 / every 30 days)",
+                "discount_amounts": [
+                    {
+                        "amount": 140,
+                        "discount": "di_1IOrTLHTjp366LnezUmDBm28"
+                    }
+                ],
+                "discountable": true,
+                "discounts": [
+                ],
+                "livemode": false,
+                "metadata": {
+                },
+                "period": {
+                    "end": 1616945773,
+                    "start": 1614353773
+                },
+                "plan": {
+                    "id": "price_1IHh7xHTjp366LneW9kKttIF",
+                    "object": "plan",
+                    "active": true,
+                    "aggregate_usage": null,
+                    "amount": 1400,
+                    "amount_decimal": "1400",
+                    "billing_scheme": "per_unit",
+                    "created": 1612580789,
+                    "currency": "brl",
+                    "interval": "day",
+                    "interval_count": 30,
+                    "livemode": false,
+                    "metadata": {
+                    },
+                    "nickname": null,
+                    "product": "prod_ItU6rY1zf30Y1u",
+                    "tiers_mode": null,
+                    "transform_usage": null,
+                    "trial_period_days": null,
+                    "usage_type": "licensed"
+                },
+                "price": {
+                    "id": "price_1IHh7xHTjp366LneW9kKttIF",
+                    "object": "price",
+                    "active": true,
+                    "billing_scheme": "per_unit",
+                    "created": 1612580789,
+                    "currency": "brl",
+                    "livemode": false,
+                    "lookup_key": null,
+                    "metadata": {
+                    },
+                    "nickname": null,
+                    "product": "prod_ItU6rY1zf30Y1u",
+                    "recurring": {
+                        "aggregate_usage": null,
+                        "interval": "day",
+                        "interval_count": 30,
+                        "trial_period_days": null,
+                        "usage_type": "licensed"
+                    },
+                    "tiers_mode": null,
+                    "transform_quantity": null,
+                    "type": "recurring",
+                    "unit_amount": 1400,
+                    "unit_amount_decimal": "1400"
+                },
+                "proration": false,
+                "quantity": 1,
+                "subscription": "sub_J0tF3CjCOs031G",
+                "subscription_item": "si_J0tFkRKewqG1f2",
+                "tax_amounts": [
+                ],
+                "tax_rates": [
+                ],
+                "type": "subscription"
+            }
+        ],
+        "has_more": false,
+        "total_count": 1,
+        "url": "/v1/invoices/in_1IP8MTHTjp366LnecBQNmxWZ/lines"
+    },
+    "livemode": false,
+    "metadata": {
+    },
+    "next_payment_attempt": null,
+    "number": "2398948D-0005",
+    "on_behalf_of": null,
+    "paid": true,
+    "payment_intent": "pi_1IP8MTHTjp366Lneq9mWqWpn",
+    "payment_settings": {
+        "payment_method_options": null,
+        "payment_method_types": null
+    },
+    "period_end": 1614353773,
+    "period_start": 1614353773,
+    "post_payment_credit_notes_amount": 0,
+    "pre_payment_credit_notes_amount": 0,
+    "receipt_number": null,
+    "starting_balance": 0,
+    "statement_descriptor": null,
+    "status": "paid",
+    "status_transitions": {
+        "finalized_at": 1614353773,
+        "marked_uncollectible_at": null,
+        "paid_at": 1614353773,
+        "voided_at": null
+    },
+    "subscription": "sub_J0tF3CjCOs031G",
+    "subtotal": 1400,
+    "tax": null,
+    "total": 1260,
+    "total_discount_amounts": [
+        {
+            "amount": 140,
+            "discount": "di_1IOrTLHTjp366LnezUmDBm28"
+        }
+    ],
+    "total_tax_amounts": [
+    ],
+    "transfer_data": null,
+    "webhooks_delivered_at": null
+}

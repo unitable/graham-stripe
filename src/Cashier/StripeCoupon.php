@@ -3,9 +3,12 @@
 namespace Unitable\GrahamStripe\Cashier;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Unitable\Graham\Coupon\Coupon;
 
 /**
  * @property string $stripe_coupon_id
+ * @property Coupon $coupon
  */
 class StripeCoupon extends Model {
 
@@ -31,6 +34,15 @@ class StripeCoupon extends Model {
      */
     public static function findByStripeCouponId(string $stripe_coupon_id) {
         return static::query()->where('stripe_coupon_id', $stripe_coupon_id)->first();
+    }
+
+    /**
+     * Get the coupon model.
+     *
+     * @return BelongsTo
+     */
+    public function coupon(): BelongsTo {
+        return $this->belongsTo(Coupon::class);
     }
 
 }
