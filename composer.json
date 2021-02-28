@@ -1,7 +1,7 @@
 {
     "name": "unitable/graham-stripe",
     "description": "Stripe for Graham",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "keywords": [
         "unitable",
         "graham-stripe"
@@ -26,7 +26,7 @@
         "php": "^7.4|^8.0",
         "illuminate/support": "^8.28",
         "laravel/cashier": "^12.9",
-        "unitable/graham": "^0.1.0"
+        "unitable/graham": "dev-master"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.9",
