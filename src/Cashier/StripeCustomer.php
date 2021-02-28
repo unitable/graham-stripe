@@ -2,7 +2,7 @@
 
 namespace Unitable\GrahamStripe\Cashier;
 
-use Illuminate\Database\Eloquent\Model;
+use Unitable\Graham\Support\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Laravel\Cashier\Billable as Cashier;

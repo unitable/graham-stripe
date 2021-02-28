@@ -2,7 +2,7 @@
 
 namespace Unitable\GrahamStripe\Cashier;
 
-use Illuminate\Database\Eloquent\Model;
+use Unitable\Graham\Support\Model;
 
 /**
  * @property string $stripe_price_id
