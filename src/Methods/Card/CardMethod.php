@@ -1,6 +1,6 @@
 <?php
 
-namespace Unitable\GrahamStripe\Methods\StripeCard;
+namespace Unitable\GrahamStripe\Methods\Card;
 
 use Unitable\GrahamStripe\Engine\StripeEngine;
 use Unitable\GrahamStripe\Method\StripeMethod;
@@ -11,7 +11,9 @@ use Unitable\GrahamStripe\Method\StripeMethod;
  * @property string $stripe_payment_method_id
  * @property StripeEngine $engine
  */
-class StripeCardMethod extends StripeMethod {
+class CardMethod extends StripeMethod {
+
+    protected $table = 'stripe_cards';
 
     protected $guarded = [];
 
