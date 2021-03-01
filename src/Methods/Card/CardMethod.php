@@ -13,7 +13,7 @@ use Unitable\GrahamStripe\Method\StripeMethod;
  */
 class CardMethod extends StripeMethod {
 
-    protected $table = 'stripe_cards';
+    protected $table = 'stripe_card_methods';
 
     protected $guarded = [];
 
