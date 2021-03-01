@@ -5,7 +5,9 @@ namespace Unitable\GrahamStripe;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Unitable\GrahamStripe\Skeleton\SkeletonClass
+ * @method static array stripeOptions(array $options = []) Get the Stripe options.
+ *
+ * @see \Unitable\GrahamStripe\GrahamStripe
  */
 class GrahamStripeFacade extends Facade
 {
