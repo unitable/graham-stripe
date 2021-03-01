@@ -53,7 +53,7 @@ class StripeCustomer extends Model {
      * @return BelongsTo
      */
     public function user(): BelongsTo {
-        $model = config('graham-stripe.user');
+        $model = config('graham.model');
 
         return $this->belongsTo($model);
     }
