@@ -121,7 +121,6 @@ class WebhookController extends Controller {
 
         if ($stripe_subscription = StripeSubscription::findByStripeSubscriptionId($data['subscription'])) {
             $subscription = $stripe_subscription->subscription;
-
             $currency = Graham::currency(strtoupper($data['currency']));
 
             $invoice = SubscriptionInvoice::create([
@@ -136,7 +135,9 @@ class WebhookController extends Controller {
                 'currency_code' => $currency->code,
                 'currency_rate' => $currency->rate,
                 'subtotal' => $data['subtotal'] / 100,
-                'total' => $data['total'] / 100
+                'total' => $data['total'] / 100,
+                'due_at' => $data['due_date'] ?
+                    Carbon::createFromTimestamp($data['due_date']) : $subscription->period_ends_at
             ]);
 
             $discounts = collect($data['total_discount_amounts']);
@@ -181,7 +182,8 @@ class WebhookController extends Controller {
             ]);
 
             $invoice->update([
-                'status' => $stripe_invoice->translateStatus()
+                'status' => $new_status = $stripe_invoice->translateStatus(),
+                'paid_at' => $new_status === StripeSubscriptionInvoice::PAID ? now() : null
             ]);
         }
 
