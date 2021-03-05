@@ -70,7 +70,7 @@ return [
     |
     */
 
-    'currency' => env('STRIPE_CURRENCY', 'usd'),
+    'currency' => env('STRIPE_CURRENCY', 'USD'),
 
     /*
     |--------------------------------------------------------------------------
