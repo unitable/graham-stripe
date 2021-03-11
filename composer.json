@@ -25,7 +25,7 @@
     "require": {
         "php": "^7.4|^8.0",
         "illuminate/support": "^8.28",
-        "laravel/cashier": "12.9",
+        "laravel/cashier": "12.9.*",
         "unitable/graham": "dev-master"
     },
     "require-dev": {
