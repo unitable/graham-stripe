@@ -11,7 +11,7 @@ use Unitable\GrahamStripe\Method\StripeMethod;
  * @property string $stripe_payment_method_id
  * @property StripeEngine $engine
  */
-class CardMethod extends StripeMethod {
+final class CardMethod extends StripeMethod {
 
     protected $table = 'stripe_card_methods';
 
