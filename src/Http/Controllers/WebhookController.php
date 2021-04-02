@@ -125,7 +125,7 @@ class WebhookController extends Controller {
 
             if ($subscription->onTrial()
                 && $data['billing_reason'] === 'subscription_create'
-                && $data['subtotal'] === 0.00 && $data['total'] === 0.00) {
+                && $data['subtotal'] == 0 && $data['total'] == 0) {
                 return $this->successMethod();
             }
 
