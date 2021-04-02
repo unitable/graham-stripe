@@ -123,6 +123,12 @@ class WebhookController extends Controller {
             $subscription = $stripe_subscription->subscription;
             $currency = Graham::currency(strtoupper($data['currency']));
 
+            if ($subscription->onTrial()
+                && $data['billing_reason'] === 'subscription_create'
+                && $data['subtotal'] === 0.00 && $data['total'] === 0.00) {
+                return $this->successMethod();
+            }
+
             $invoice = SubscriptionInvoice::create([
                 'status' => SubscriptionInvoice::PROCESSING,
                 'subscription_id' => $subscription->id,
