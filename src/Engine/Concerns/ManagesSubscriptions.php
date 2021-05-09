@@ -40,6 +40,20 @@ trait ManagesSubscriptions {
     }
 
     /**
+     * Cancel a subscription immediately.
+     *
+     * @param Subscription $subscription
+     */
+    public function cancelSubscriptionImmediately(Subscription $subscription) {
+        $stripe_subscription = StripeSubscription::findBySubscriptionId($subscription->id);
+
+        if (!$stripe_subscription)
+            throw new \RuntimeException('Stripe subscription not found.');
+
+        $stripe_subscription->cancelNow();
+    }
+
+    /**
      * Resume a subscription.
      *
      * @param Subscription $subscription
