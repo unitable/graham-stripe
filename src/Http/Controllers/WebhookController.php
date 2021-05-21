@@ -129,8 +129,9 @@ class WebhookController extends Controller {
                 return $this->successMethod();
             }
 
+            /** @var SubscriptionInvoice $invoice */
             $invoice = SubscriptionInvoice::create([
-                'status' => SubscriptionInvoice::PROCESSING,
+                'status' => null,
                 'subscription_id' => $subscription->id,
                 'user_id' => $subscription->user_id,
                 'plan_id' => $subscription->plan_id,
@@ -157,8 +158,7 @@ class WebhookController extends Controller {
                 $stripe_coupon = StripeCoupon::findByStripeCouponId($coupon_discount['coupon']['id']);
                 if (!$stripe_coupon) throw new \RuntimeException('Stripe coupon not found.');
 
-                SubscriptionInvoiceDiscount::create([
-                    'subscription_invoice_id' => $invoice->id,
+                $invoice->discounts()->create([
                     'subscription_id' => $subscription->id,
                     'discount_type' => get_class($stripe_coupon->coupon),
                     'discount_id' => $stripe_coupon->coupon->id,
@@ -167,13 +167,17 @@ class WebhookController extends Controller {
             }
 
             foreach ($discounts as $discount) {
-                SubscriptionInvoiceDiscount::create([
+                $invoice->discounts()->create([
                     'subscription_invoice_id' => $invoice->id,
                     'subscription_id' => $subscription->id,
                     'discount_type' => StripeDiscount::class,
                     'value' => $discount['amount'] / 100
                 ]);
             }
+
+            $invoice->update([
+                'status' => SubscriptionInvoice::PROCESSING
+            ]);
 
             /** @var StripeSubscriptionInvoice $stripe_invoice */
             $stripe_invoice = StripeSubscriptionInvoice::create([
