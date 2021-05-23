@@ -14,7 +14,7 @@ class CreateStripeSubscriptionItemsTable extends Migration
     public function up()
     {
         Schema::create('stripe_subscription_items', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->unsignedBigInteger('subscription_id');
             $table->string('stripe_id')->index();
             $table->string('stripe_plan');

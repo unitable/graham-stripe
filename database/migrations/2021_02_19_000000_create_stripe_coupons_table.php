@@ -13,6 +13,7 @@ class CreateStripeCouponsTable extends Migration {
      */
     public function up() {
         Schema::create('stripe_coupons', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('coupon_id')->unique();
             $table->string('stripe_coupon_id');
         });

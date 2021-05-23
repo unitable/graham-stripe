@@ -13,6 +13,7 @@ class CreateStripeCustomersTable extends Migration {
      */
     public function up() {
         Schema::create('stripe_customers', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('user_id')->unique();
             $table->string('stripe_id')->nullable()->index();
             $table->string('card_brand')->nullable();

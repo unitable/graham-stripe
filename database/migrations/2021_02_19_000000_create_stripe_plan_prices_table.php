@@ -13,6 +13,7 @@ class CreateStripePlanPricesTable extends Migration {
      */
     public function up() {
         Schema::create('stripe_plan_prices', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('plan_price_id')->unique();
             $table->string('stripe_price_id');
         });
