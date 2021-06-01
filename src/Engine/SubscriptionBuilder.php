@@ -92,6 +92,8 @@ class SubscriptionBuilder extends Builder {
             $builder->withCoupon($coupon->stripe_coupon_id);
         }
 
+        $builder->noProrate();
+
         /** @var StripeSubscription $stripe_subscription */
         $stripe_subscription = $builder->create($this->method->getStripePaymentMethodId());
         $stripe_data = $stripe_subscription->asStripeSubscription();
