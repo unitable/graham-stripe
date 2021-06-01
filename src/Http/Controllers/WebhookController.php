@@ -3,6 +3,7 @@
 namespace Unitable\GrahamStripe\Http\Controllers;
 
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Log;
 use Laravel\Cashier\Http\Controllers\WebhookController as Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Unitable\Graham\GrahamFacade as Graham;
@@ -122,6 +123,12 @@ class WebhookController extends Controller {
         if ($stripe_subscription = StripeSubscription::findByStripeSubscriptionId($data['subscription'])) {
             $subscription = $stripe_subscription->subscription;
             $currency = Graham::currency(strtoupper($data['currency']));
+
+            if (!$subscription) {
+                Log::alert('[Webhook] invoice_created: Subscription not found for Stripe Subscription #' . $stripe_subscription->id);
+
+                return $this->successMethod();
+            }
 
             if ($subscription->onTrial()
                 && $data['billing_reason'] === 'subscription_create'
