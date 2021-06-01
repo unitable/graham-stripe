@@ -8,7 +8,6 @@ use Laravel\Cashier\Http\Controllers\WebhookController as Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Unitable\Graham\GrahamFacade as Graham;
 use Unitable\Graham\Subscription\SubscriptionInvoice;
-use Unitable\Graham\Subscription\SubscriptionInvoiceDiscount;
 use Unitable\GrahamStripe\Cashier\StripeCoupon;
 use Unitable\GrahamStripe\Cashier\StripeDiscount;
 use Unitable\GrahamStripe\Cashier\StripeSubscription;
