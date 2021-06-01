@@ -36,7 +36,7 @@ trait ManagesSubscriptions {
         if (!$stripe_subscription)
             throw new \RuntimeException('Stripe subscription not found.');
 
-        $stripe_subscription->cancel();
+        $stripe_subscription->noProrate()->cancel();
     }
 
     /**
@@ -50,7 +50,7 @@ trait ManagesSubscriptions {
         if (!$stripe_subscription)
             throw new \RuntimeException('Stripe subscription not found.');
 
-        $stripe_subscription->cancelNow();
+        $stripe_subscription->noProrate()->cancelNow();
     }
 
     /**
